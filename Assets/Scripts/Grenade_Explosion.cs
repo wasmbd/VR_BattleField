@@ -19,7 +19,7 @@ public class Grenade_Explosion : MonoBehaviour
             ExplosionSound.Play();
 
             // Destroy the particle system after it finishes
-            Destroy(instantiatedEffect.gameObject, instantiatedEffect.main.duration);
+            //Destroy(instantiatedEffect.gameObject, instantiatedEffect.main.duration);
 
             // Destroy the grenade object
             StopSound();

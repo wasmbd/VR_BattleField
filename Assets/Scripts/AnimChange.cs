@@ -57,8 +57,7 @@ public class AnimChange : MonoBehaviour
 
             
         }
-       /* yield return new WaitForSeconds(DestroyTime);
-        Destroy(EnAnim.transform.parent.gameObject);*/
+      
 
     }
 }
