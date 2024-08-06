@@ -1,0 +1,62 @@
+{
+    "name": "VRInputsPlane",
+    "maps": [
+        {
+            "name": "FlyUp",
+            "id": "622c4c1f-13a6-47e8-84ef-a3795411cc72",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "693d0b61-aa19-4702-becc-511bfcd81ff9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "84589623-ce1a-46a7-b0ee-f65c861d1fcd",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "FlyDown",
+            "id": "e6808ec4-907b-4ce8-bd0b-063a65bf800d",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "0fc3c509-e6f9-4cb1-8a02-85307f051c0a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4131258b-4197-478e-85a5-79fec0c2849f",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -8,12 +8,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class EnterTank : MonoBehaviour
 {
-   // public Transform sittingPosition; // Assign the SittingPosition Transform here
-    public Transform sittingPosition; // Assign the SittingPosition Transform here
+
+    public Transform sittingPosition;
+    public Camera tankCamera;
+    private Camera playerCamera;
+
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the player entered the trigger
         if (other.CompareTag("Player"))
         {
             // Get the XR Origin (assuming it's the parent of the player's collider)
@@ -22,11 +24,40 @@ public class EnterTank : MonoBehaviour
             {
                 // Move and rotate the XR Origin to the sitting position
                 xrOrigin.MoveCameraToWorldLocation(sittingPosition.position);
-                xrOrigin.RotateAroundCameraUsingOriginUp(sittingPosition.eulerAngles.y);
+                //xrOrigin.RotateAroundCameraUsingOriginUp(sittingPosition.eulerAngles.y);
 
                 // Parent the tank to the XR Origin
                 transform.SetParent(xrOrigin.transform, true);
+
+                // Switch cameras
+                if (playerCamera != null)
+                {
+                    playerCamera.gameObject.SetActive(false);
+                }
+                if (tankCamera != null)
+                {
+                    tankCamera.gameObject.SetActive(true);
+                }
             }
         }
     }
+   /* private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") || other.CompareTag("Tank"))
+        {
+            // Unparent the tank from the XR Origin
+            transform.SetParent(null, true);
+
+
+            // Switch cameras back
+            if (tankCamera != null)
+            {
+                tankCamera.gameObject.SetActive(false);
+            }
+            if (playerCamera != null)
+            {
+                playerCamera.gameObject.SetActive(true);
+            }
+        }
+    }*/
 }
