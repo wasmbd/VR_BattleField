@@ -42,7 +42,7 @@ public class AgentFollow : MonoBehaviour
 
     IEnumerator DelayedFollow()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         if (target != null)
         {
             if (Vector3.Distance(theDestination, target.position) > 5.0f)
@@ -52,11 +52,16 @@ public class AgentFollow : MonoBehaviour
 
             }
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(8f);
         foreach (GameObject go in Enemies1)
         {
             animator.SetTrigger("RunForwardTrig");
             yield return new WaitForSeconds(2f);
+            
+
         }
+        yield return new WaitForSeconds(20f);
+        animator.SetTrigger("DeathTrig");
+        agent.destination = AgentPos.position;
     }
 }

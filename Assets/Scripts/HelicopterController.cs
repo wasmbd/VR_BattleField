@@ -5,16 +5,47 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HelicopterController : MonoBehaviour
 {
-    public float moveStep = 1f;
+    public GameObject Helicopter;
+    public Transform maxflyPoint;
 
-    // Method to move the plane up
-    public void MoveUp()
+    public AnimationClip AnimationClip;
+    public AudioClip flySound; // Assign the flying sound here
+    private AudioSource flysound;
+    private Animator animator;
+
+    void Start()
     {
-        transform.position += Vector3.up * moveStep;
+        flysound = Helicopter.GetComponent<AudioSource>();
+        animator = Helicopter.GetComponent<Animator>();
+
+        if (flysound == null)
+        {
+            flysound = Helicopter.AddComponent<AudioSource>();
+        }
+
+        flysound.clip = flySound;
     }
 
-    public void MoveDown()
+    public void OnPoke()
     {
-        transform.position += Vector3.down * moveStep;
+        Fly();
+    }
+
+    private void Fly()
+    {
+        // Move the helicopter to the maxflyPoint position
+        Helicopter.transform.position = maxflyPoint.position;
+
+        // Play the animation clip
+        if (animator != null && AnimationClip != null)
+        {
+            animator.Play(AnimationClip.name);
+        }
+
+        // Play the fly sound
+        if (flysound != null)
+        {
+            flysound.Play();
+        }
     }
 }
